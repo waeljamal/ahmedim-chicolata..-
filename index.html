@@ -1,30 +1,247 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ahmedim Chicolata</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Handmade chocolate by Linda. Order via WhatsApp in Türkiye." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header style="background:#3b1f14;color:white;padding:60px;text-align:center">
-    <h1>Ahmedim Chicolata</h1>
-    <p>Handmade chocolate by Linda</p>
-    <a href="https://wa.me/905339351071" target="_blank"
-       style="display:inline-block;margin-top:20px;padding:12px 18px;
-              background:#d4a373;color:#000;text-decoration:none;
-              border-radius:10px;font-weight:bold">
-      Order on WhatsApp
-    </a>
+  <!-- Top bar -->
+  <header class="topbar" id="top">
+    <div class="wrap topbar__inner">
+      <div class="brand">
+        <div class="brand__logo">AC</div>
+        <div>
+          <div class="brand__name">Ahmedim Chicolata</div>
+          <div class="brand__tag">Handmade chocolate by Linda</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <button class="iconbtn" id="toggleTheme" title="Toggle theme" aria-label="Toggle theme">☾</button>
+        <button class="cartbtn" id="openCart" aria-label="Open cart">
+          🛒 <span class="badge" id="cartCount">0</span>
+        </button>
+      </nav>
+    </div>
   </header>
 
-  <section style="padding:30px;text-align:center">
-    <h2>Our Products</h2>
-    <p>Dark chocolate • Milk chocolate • Gift boxes</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__text">
+        <h1>Premium handmade chocolate, delivered fast.</h1>
+        <p>Pick your favorites, add to cart, then checkout on WhatsApp in one tap.</p>
+
+        <div class="cta">
+          <a class="btn" href="#products">Shop products</a>
+          <a class="btn btn--ghost" id="whatsAppQuick" target="_blank" rel="noopener">Quick WhatsApp</a>
+          <a class="btn btn--ghost" id="instagramLink" target="_blank" rel="noopener">Instagram</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat__num">Handmade</div>
+            <div class="stat__label">Small batches</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">Fresh</div>
+            <div class="stat__label">Made to order</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">WhatsApp</div>
+            <div class="stat__label">Fast ordering</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__card">
+        <div class="hero__cardTop">
+          <div class="pill">Today’s bestsellers</div>
+          <div class="small">Tap + to add</div>
+        </div>
+
+        <div class="miniList" id="miniBestsellers">
+          <!-- Filled by JS -->
+        </div>
+
+        <div class="hero__cardBottom">
+          <button class="btn btn--dark" id="goCart">Go to cart</button>
+          <a class="btn btn--ghost" href="#products">Browse all</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer style="padding:20px;text-align:center;opacity:.7">
-    © 2026 Ahmedim Chicolata
+  <!-- Products -->
+  <section class="section" id="products">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>Products</h2>
+        <div class="controls">
+          <input class="input" id="search" placeholder="Search products..." />
+          <select class="select" id="sort">
+            <option value="popular">Sort: Popular</option>
+            <option value="low">Price: Low → High</option>
+            <option value="high">Price: High → Low</option>
+            <option value="name">Name: A → Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid" id="productGrid">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section section--alt" id="about">
+    <div class="wrap twoCol">
+      <div>
+        <h2>About Ahmedim</h2>
+        <p>
+          We make chocolates in small batches with a focus on taste, freshness, and presentation.
+          Perfect for gifts, celebrations, and daily treats.
+        </p>
+        <ul class="list">
+          <li>✅ Gift-ready packaging</li>
+          <li>✅ Custom notes available</li>
+          <li>✅ Fast WhatsApp ordering</li>
+        </ul>
+        <div class="cta">
+          <a class="btn" href="#products">Order now</a>
+          <a class="btn btn--ghost" id="callToWhatsApp2" target="_blank" rel="noopener">Message Linda</a>
+        </div>
+      </div>
+
+      <div class="infoCard">
+        <h3>Contact</h3>
+        <p><b>WhatsApp:</b> +90 533 935 10 71</p>
+        <p><b>Instagram:</b> <span id="igText">Add your link</span></p>
+        <p class="muted">Tip: Put delivery areas & hours here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <div class="section__head">
+        <h2>Customer reviews</h2>
+        <button class="btn btn--ghost" id="addReviewBtn">Add a review</button>
+      </div>
+
+      <div class="reviews" id="reviewsList">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt" id="faq">
+    <div class="wrap">
+      <h2>FAQ</h2>
+
+      <details class="faq" open>
+        <summary>How do I order?</summary>
+        <p>Add products to cart → open cart → “Checkout on WhatsApp”.</p>
+      </details>
+
+      <details class="faq">
+        <summary>Do you deliver?</summary>
+        <p>Yes. Add your delivery areas and shipping fee rules here.</p>
+      </details>
+
+      <details class="faq">
+        <summary>Can I add a gift note?</summary>
+        <p>Yes — tell us the message during WhatsApp checkout.</p>
+      </details>
+
+      <details class="faq">
+        <summary>How long does it take?</summary>
+        <p>Usually same day / next day depending on your area.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <div class="brand__name">Ahmedim Chicolata</div>
+        <div class="muted">© <span id="year"></span></div>
+      </div>
+
+      <div class="footer__links">
+        <a href="#top">Top</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
   </footer>
+
+  <!-- Cart Drawer -->
+  <aside class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__overlay" id="closeCartOverlay"></div>
+
+    <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Cart">
+      <div class="drawer__head">
+        <h3>Your cart</h3>
+        <button class="iconbtn" id="closeCart" aria-label="Close cart">✕</button>
+      </div>
+
+      <div class="drawer__body" id="cartItems">
+        <!-- Filled by JS -->
+      </div>
+
+      <div class="drawer__foot">
+        <div class="row">
+          <div class="muted">Subtotal</div>
+          <div class="price" id="cartSubtotal">₺0</div>
+        </div>
+
+        <label class="label">Your note (optional)</label>
+        <textarea class="textarea" id="orderNote" placeholder="Example: Please make it a gift, write: Happy Birthday!"></textarea>
+
+        <button class="btn btn--dark w100" id="checkoutWA">Checkout on WhatsApp</button>
+        <button class="btn btn--ghost w100" id="clearCart">Clear cart</button>
+
+        <div class="small muted">Checkout opens WhatsApp with your order details.</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Simple modal for adding a review -->
+  <div class="modal" id="reviewModal" aria-hidden="true">
+    <div class="modal__overlay" id="reviewOverlay"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Add review">
+      <div class="drawer__head">
+        <h3>Add a review</h3>
+        <button class="iconbtn" id="closeReview" aria-label="Close">✕</button>
+      </div>
+      <div class="modal__body">
+        <input class="input" id="reviewName" placeholder="Your name" />
+        <select class="select" id="reviewStars">
+          <option value="5">★★★★★ (5)</option>
+          <option value="4">★★★★☆ (4)</option>
+          <option value="3">★★★☆☆ (3)</option>
+          <option value="2">★★☆☆☆ (2)</option>
+          <option value="1">★☆☆☆☆ (1)</option>
+        </select>
+        <textarea class="textarea" id="reviewText" placeholder="Write your review..."></textarea>
+        <button class="btn btn--dark w100" id="saveReview">Save review</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
